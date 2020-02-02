@@ -1124,7 +1124,7 @@ def btn_checkxlsx(filename, fmghost, fmguser, fmgpasswd, fmgadom):
         for devicedata in alldevices:
             return_html += "<br>\n <b> >> Adding Device [ " + devicedata['Device_Name'] + " ] </b><br>\n"
             add_dev_status = track_model_task(
-                add_model_device(fmg_adom, devicedata['Device_Name'], devicedata['Device_SN'],
+                add_model_device(fmg_adom, devicedata['Device_Name'], devicedata['Description'], devicedata['Device_SN'],
                                  devicedata['Platform'], devicedata['Upgrade_Ver']))
 
             sendupdate(return_html)
