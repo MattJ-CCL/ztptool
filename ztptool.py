@@ -491,7 +491,7 @@ def track_model_task(taskid):
     return ret_status
 
 
-def add_model_device(adomname, devicename, sn, platform, prefer_img):
+def add_model_device(adomname, devicename, description, sn, platform, prefer_img):
     requestid = 1
     jsondata = {
         "method": "exec",
@@ -514,7 +514,8 @@ def add_model_device(adomname, devicename, sn, platform, prefer_img):
                         "flags": 67371040,
                         "sn": sn,
                         "os_ver": 6,
-                        "mr": 2
+                        "mr": 2,
+                        "desc": description,
                     }
                 }
             }
@@ -1097,7 +1098,7 @@ def btn_checkxlsx(filename, fmghost, fmguser, fmgpasswd, fmgadom):
                 return_html += "Lock ADOM \"" + fmg_adom + "\" failed <span class=\"glyphicon glyphicon-remove\" style=\"color:red\"></span><br>\n"
                 proceed = False
         ## check for required fields in headings
-        required_headings = ["Device_Name", "Platform", "Device_SN", "CLI_Template", "Post_CLI_Template",
+        required_headings = ["Device_Name", "Description", "Platform", "Device_SN", "CLI_Template", "Post_CLI_Template",
                              "Policy_Package",
                              "SDWAN_Template"]
         for req_heading in required_headings:
